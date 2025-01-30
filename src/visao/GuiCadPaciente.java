@@ -196,6 +196,10 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
                         "Selecione um produto");
             } // fecha else
 
+       //mudanças
+       
+       
+       
            // Criando objeto PacienteDAO para cadastrar o paciente no banco de dados
             PacienteDAO pacDAO = new PacienteDAO();
             pacDAO.cadastrarPaciente(pac);
