@@ -37,18 +37,19 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
         jlCpf = new javax.swing.JLabel();
         jlEndereco = new javax.swing.JLabel();
         jtNome = new javax.swing.JTextField();
-        jtCpf = new javax.swing.JTextField();
         jtEndereco = new javax.swing.JTextField();
         jlEspecialidade = new javax.swing.JLabel();
         jlDataNasc = new javax.swing.JLabel();
-        jtDataNasc = new javax.swing.JTextField();
-        jtTelefone = new javax.swing.JTextField();
         jlTelefone = new javax.swing.JLabel();
         jlEmail1 = new javax.swing.JLabel();
         jtEmail1 = new javax.swing.JTextField();
         jlRG = new javax.swing.JLabel();
         jtRG = new javax.swing.JTextField();
         jcConvenio = new javax.swing.JComboBox<>();
+        jtCpf = new javax.swing.JFormattedTextField();
+        jtDataNasc = new javax.swing.JFormattedTextField();
+        jtTelefone = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jbLimpar = new javax.swing.JButton();
         jbCadastrar1 = new javax.swing.JButton();
@@ -61,58 +62,86 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLayeredPane1.setOpaque(true);
 
-        jlNome.setText("Nome");
+        jlNome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlNome.setText("Nome * ");
         jLayeredPane1.add(jlNome);
-        jlNome.setBounds(40, 20, 60, 30);
+        jlNome.setBounds(60, 80, 70, 30);
 
-        jlCpf.setText("CPF");
+        jlCpf.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlCpf.setText("CPF *");
         jLayeredPane1.add(jlCpf);
-        jlCpf.setBounds(40, 60, 90, 30);
+        jlCpf.setBounds(60, 120, 90, 30);
 
-        jlEndereco.setText("Endereço");
+        jlEndereco.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlEndereco.setText("Endereço *");
         jLayeredPane1.add(jlEndereco);
-        jlEndereco.setBounds(40, 140, 60, 30);
+        jlEndereco.setBounds(50, 200, 100, 30);
         jLayeredPane1.add(jtNome);
-        jtNome.setBounds(140, 20, 210, 30);
-        jLayeredPane1.add(jtCpf);
-        jtCpf.setBounds(140, 60, 110, 30);
+        jtNome.setBounds(160, 80, 210, 30);
         jLayeredPane1.add(jtEndereco);
-        jtEndereco.setBounds(140, 140, 210, 30);
+        jtEndereco.setBounds(160, 200, 210, 30);
 
+        jlEspecialidade.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jlEspecialidade.setText("Convênio");
         jLayeredPane1.add(jlEspecialidade);
-        jlEspecialidade.setBounds(40, 300, 100, 30);
+        jlEspecialidade.setBounds(60, 360, 100, 30);
 
-        jlDataNasc.setText("Data Nascimento");
+        jlDataNasc.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jlDataNasc.setText("Data Nascimento *");
         jLayeredPane1.add(jlDataNasc);
-        jlDataNasc.setBounds(40, 260, 100, 30);
+        jlDataNasc.setBounds(40, 320, 160, 30);
 
-        jtDataNasc.setToolTipText("(dd/mm/aaaa)");
-        jLayeredPane1.add(jtDataNasc);
-        jtDataNasc.setBounds(140, 260, 210, 30);
-
-        jtTelefone.setToolTipText("(xx) xxxx-xxxx");
-        jLayeredPane1.add(jtTelefone);
-        jtTelefone.setBounds(140, 180, 130, 30);
-
-        jlTelefone.setText("Telefone");
+        jlTelefone.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlTelefone.setText("Telefone *");
         jLayeredPane1.add(jlTelefone);
-        jlTelefone.setBounds(40, 180, 50, 30);
+        jlTelefone.setBounds(50, 240, 100, 30);
 
-        jlEmail1.setText("E-mal");
+        jlEmail1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlEmail1.setText("E-mail");
         jLayeredPane1.add(jlEmail1);
-        jlEmail1.setBounds(40, 220, 90, 30);
+        jlEmail1.setBounds(60, 280, 90, 30);
         jLayeredPane1.add(jtEmail1);
-        jtEmail1.setBounds(140, 220, 210, 30);
+        jtEmail1.setBounds(160, 280, 210, 30);
 
+        jlRG.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jlRG.setText("RG");
         jLayeredPane1.add(jlRG);
-        jlRG.setBounds(40, 100, 90, 30);
+        jlRG.setBounds(60, 160, 90, 30);
         jLayeredPane1.add(jtRG);
-        jtRG.setBounds(140, 100, 210, 30);
+        jtRG.setBounds(160, 160, 210, 30);
 
         jLayeredPane1.add(jcConvenio);
-        jcConvenio.setBounds(140, 300, 150, 30);
+        jcConvenio.setBounds(160, 360, 150, 30);
+
+        try {
+            jtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jLayeredPane1.add(jtCpf);
+        jtCpf.setBounds(160, 120, 90, 30);
+
+        try {
+            jtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("   ##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jLayeredPane1.add(jtDataNasc);
+        jtDataNasc.setBounds(220, 320, 70, 30);
+
+        try {
+            jtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jLayeredPane1.add(jtTelefone);
+        jtTelefone.setBounds(190, 240, 90, 30);
+
+        jLabel1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("* Campo Obrigatório");
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(390, 40, 130, 19);
 
         jLayeredPane2.setBackground(new java.awt.Color(255, 255, 255));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -152,7 +181,7 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -219,6 +248,10 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
         jtNome.setText("");
         jtEndereco.setText("");
         jtCpf.setText("");
+        jtDataNasc.setText("");
+        jtRG.setText("");
+        jtTelefone.setText("");
+        jtEmail1.setText("");
     }// fecha método
 
     
@@ -258,12 +291,46 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
     }
 
     private void jbCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {
+        boolean ok = true;
         
+         if(jtNome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(GuiCadPaciente.this, "O Campo NOME é obrigatório!","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);
+                jtNome.requestFocusInWindow();
+            ok = false;
+        }
+         
+         if(jtCpf.getText().isEmpty()){
+            JOptionPane.showMessageDialog(GuiCadPaciente.this, "O Campo CPF é obrigatório!","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);
+                jtCpf.requestFocusInWindow();
+            ok = false;
+        }
+         
+         if(jtDataNasc.getText().isEmpty()){
+            JOptionPane.showMessageDialog(GuiCadPaciente.this, "O Campo DATA DE NASCIMENTO é obrigatório!","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);
+                jtDataNasc.requestFocusInWindow();
+            ok = false;
+        }
+         
+         if(jtEndereco.getText().isEmpty()){
+            JOptionPane.showMessageDialog(GuiCadPaciente.this, "O Campo ENDEREÇO é obrigatório!","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);
+                jtEndereco.requestFocusInWindow();
+            ok = false;
+        }
+         
+         if(jtTelefone.getText().isEmpty()){
+            JOptionPane.showMessageDialog(GuiCadPaciente.this, "O Campo TELEFONE é obrigatório!","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);
+                jtTelefone.requestFocusInWindow();
+            ok = false;
+        }
+         if(ok){
         cadastrar();
         limpar();
+         }else
+         JOptionPane.showMessageDialog(GuiCadPaciente.this, "Cadastro NÃO REALIZADO! \n Verifique as infomações","INFORMAÇãO",JOptionPane.INFORMATION_MESSAGE);    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JButton jbCadastrar1;
@@ -277,12 +344,12 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlNome;
     private javax.swing.JLabel jlRG;
     private javax.swing.JLabel jlTelefone;
-    private javax.swing.JTextField jtCpf;
-    private javax.swing.JTextField jtDataNasc;
+    private javax.swing.JFormattedTextField jtCpf;
+    private javax.swing.JFormattedTextField jtDataNasc;
     private javax.swing.JTextField jtEmail1;
     private javax.swing.JTextField jtEndereco;
     private javax.swing.JTextField jtNome;
     private javax.swing.JTextField jtRG;
-    private javax.swing.JTextField jtTelefone;
+    private javax.swing.JFormattedTextField jtTelefone;
     // End of variables declaration//GEN-END:variables
 }

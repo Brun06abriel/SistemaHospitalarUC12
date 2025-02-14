@@ -206,7 +206,7 @@ public class GuiJTableBuscaPaciente extends javax.swing.JInternalFrame {
                 if (pesquisa.equals("Código Paciente")) {
                     query = "where ID_PACIENTE = " + jtFiltro.getText() + "";
                 } else if (pesquisa.equals("CPF")) {
-                    query = "where CPF = '" + jtFiltro.getText() + "'";
+                    query = "where CPF like '%" + jtFiltro.getText() + "%'";
                 } else {
                     query = "where NOME like '%" + jtFiltro.getText() + "%'";
                 }
@@ -249,6 +249,8 @@ public class GuiJTableBuscaPaciente extends javax.swing.JInternalFrame {
 
     private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
         limparTabela();
+        preencherTabela();
+        jtFiltro.setText("");
     }//GEN-LAST:event_jbLimparActionPerformed
 
     private void jtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtFiltroKeyReleased
